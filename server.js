@@ -25,10 +25,10 @@ app.get('/screenshot', async (req, res) => {
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
     await page.setViewport({ width: 1440, height: 900 });
 
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 45000 });
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
 
     // Delai extra pour les dashboards JS lourds (graphiques Databox)
-    await new Promise(r => setTimeout(r, 5000));
+    await new Promise(r => setTimeout(r, 15000));
 
     const screenshot = await page.screenshot({
       encoding: 'base64',
